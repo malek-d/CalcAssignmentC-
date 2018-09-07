@@ -3,7 +3,7 @@
 
 The calc assignment to end all calc assignments
 
-##To run code
+## To run code
 
 1. cd into calc/bin/Debug
 2. Run calc.exe
