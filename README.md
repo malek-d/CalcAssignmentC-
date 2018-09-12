@@ -1,5 +1,4 @@
 # CalcAssignmentC-
-======
 
 The calc assignment to end all calc assignments
 
