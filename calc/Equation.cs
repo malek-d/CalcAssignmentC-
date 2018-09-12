@@ -5,12 +5,14 @@ using System.Linq;
 namespace calc {
 
     /// <summary>
-    /// Handles the equation as a whole
+    /// Handles the equation as a whole by building equations 
+    /// which holds both constants & X's, merges two equations (left and right side)
+    /// and solves equation
     /// </summary>
     public class Equation {
         private List<Value> _numbers;
         private List<char> _operators;
-        private double _a; // x part of the equation
+        private double _a; // X part of the equation
         private double _b; // constant part of the equation
 
         public Equation() {
@@ -104,8 +106,8 @@ namespace calc {
                 }
             }
 
-            _a = Calculate.CalculateInput(xNumbers.ToArray(), xOperators.ToArray());
-            _b = Calculate.CalculateInput(numbers.ToArray(), operators.ToArray());
+            _a = Calculate.CalculateInput(xNumbers.ToArray(), xOperators.ToArray()); //_a will now hold the calculated value of X for this equation
+            _b = Calculate.CalculateInput(numbers.ToArray(), operators.ToArray()); //_b holds the calculated value for constants
         }
 
         // Merge two equations together
