@@ -8,7 +8,11 @@ namespace calc {
             var variableCount = 0; // needs at least one variable
             var wasNumber = false; // checks if the previous argument was a number
 
-            for (int i = 0; i < args.Length; i++) {
+            if (!isValidFirstArgument(args[0])) {
+                throw new Exception(Errors.InvalidFirstArgument);
+            }
+
+            for (int i = 1; i < args.Length; i++) {
                 if (args[i].Length == 1) { // e.g. *
                     if (!IsValidCharacter(args[i][0])) {
                         throw new Exception(Errors.InvalidCharacter);
@@ -74,7 +78,7 @@ namespace calc {
             var bracketModifier = "1";
             var bracketOperator = '*';
             for (int i = 0; i < args.Length; i++) {
-                if (equals) {
+                if (equals) {      
                     leftSide = currentSide;
                     currentSide = new Equation(); // switches side of the equation (current side is now right side)
                     equals = false; // will no longer switch on loop
@@ -128,6 +132,10 @@ namespace calc {
                 }
             }
             return new []{ leftSide, currentSide};
+        }
+        
+        private static bool isValidFirstArgument(String s){
+            return s.Equals("calc");
         }
 
         private static bool IsUnaryOperator(char c) {

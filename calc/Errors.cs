@@ -7,5 +7,6 @@
         public static readonly string IncorrectVariables = "Incorrect number of variables (needs to have at least one)";
         public static readonly string DivideByZero = "Cannot divide by zero";
         public static readonly string OutOfIntegerRange = "Out of integer range";
+        public static readonly string InvalidFirstArgument = "Expected 'calc' as first argument";
     }
 }
