@@ -31,7 +31,7 @@ namespace calc {
             return result;
         }
 
-         ///Following function handles actual calculation of variables/numbers
+         ///Following function handles actual calculation of numbers
          ///Check for possible calculation error
          ///Then calculate based on operation passed
         private static double Calculation(double first, char operation, double second) {
