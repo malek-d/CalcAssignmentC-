@@ -8,7 +8,7 @@ namespace calc {
             var variableCount = 0; // needs at least one variable
             var wasNumber = false; // checks if the previous argument was a number
 
-            if (!isValidFirstArgument(args[0])) {
+            if (!isValidFirstArgument(args[0])) { //Assignment specifies first argument should be 'calc'
                 throw new Exception(Errors.InvalidFirstArgument);
             }
 
@@ -93,8 +93,10 @@ namespace calc {
                         // is a single operator and not a modifier operator ( - as opposed to -4X )
                         wasNumber = false;
                         var operation = c;
+
+                        //Check to see if multiple operators existing concurrently
                         if (i < args.Length - 1 && args[i+1].Length == 1 && IsUnaryOperator(args[i][0]) && IsUnaryOperator(args[i+1][0])) {
-                            operation = args[i][0] == args[i + 1][0] ? '+' : '-'; // deal with multiple operators in a row
+                            operation = args[i][0] == args[i + 1][0] ? '+' : '-'; 
                             i++;
                             if (i + 1 < args.Length - 1 && args[i + 1].Length == 1 && IsUnaryOperator(args[i + 1][0])) {
                                 operation = operation == args[i + 1][0] ? '+' : '-';
@@ -109,7 +111,7 @@ namespace calc {
                     } else if (c == '(') {
                         wasNumber = false;
                         brackets = true;
-                        bracketEquation = new Equation();
+                        bracketEquation = new Equation(); //renew variable incase of multiple brackets
                     } else if (c == ')') { // close bracket
                         if (i + 1 < args.Length && IsMultiDivide(args[i + 1][0])) {
                             bracketModifier = args[i + 2];
