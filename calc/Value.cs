@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-
 namespace calc {
 
     /// <summary>
